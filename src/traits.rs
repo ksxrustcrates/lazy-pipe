@@ -27,10 +27,7 @@ pub trait PipeMap<'a> {
     fn map<Next: 'a>(self, func: impl 'a + FnOnce(Self::Value) -> Next) -> PipeBox<'a, Next>;
 
     /// Alias to [`map`](#tymethod.map)
-    fn to<Next: 'a>(
-        self,
-        func: impl 'a + FnOnce(<Self as PipeMap>::Value) -> Next
-    ) -> self::PipeBox<'a, Next> {
+    fn to<Next: 'a>(self, func: impl 'a + FnOnce(Self::Value) -> Next) -> PipeBox<'a, Next> {
         self.map(func)
     }
 }
@@ -43,7 +40,7 @@ pub trait PipeUnwrap {
     fn unwrap(self) -> Self::Value;
 
     /// Alias to [`unwrap`](#tymethod.unwrap)
-    fn get(self) -> <Self as PipeUnwrap>::Value {
+    fn get(self) -> Self::Value {
         self.unwrap()
     }
 }
