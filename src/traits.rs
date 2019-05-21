@@ -1,6 +1,17 @@
 use super::structs::PipeBox;
 
-pub trait Pipe<'a>: PipeFunc<'a> + PipeVal<'a> + PipeMap<'a> + PipeUnwrap {}
+pub trait Pipe<'a>: PipeFunc<'a> + PipeVal<'a> + PipeMap<'a> + PipeUnwrap {
+    fn to<Next: 'a>(
+        self,
+        func: impl 'a + FnOnce(<Self as PipeMap>::Value) -> Next
+    ) -> self::PipeBox<'a, Next> {
+        self.map(func)
+    }
+
+    fn get(self) -> <Self as PipeUnwrap>::Value {
+        self.unwrap()
+    }
+}
 
 pub trait PipeFunc<'a> {
     type Value: 'a;
