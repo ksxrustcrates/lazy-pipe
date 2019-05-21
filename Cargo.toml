@@ -5,5 +5,6 @@ description = "Chain closures into a pipeline"
 authors = ["khai96_ <hvksmr1996@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/ksxrustcrates/lazy-pipe"
+documentation = "https://docs.rs/lazy-pipe/"
 categories = ["no-std"]
 edition = "2018"
