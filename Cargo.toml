@@ -3,6 +3,7 @@ name = "lazy-pipe"
 version = "0.1.1"
 description = "Chain closures into a pipeline"
 authors = ["khai96_ <hvksmr1996@gmail.com>"]
+readme = "README.md"
 license = "MIT"
 repository = "https://github.com/ksxrustcrates/lazy-pipe"
 documentation = "https://docs.rs/lazy-pipe/"
