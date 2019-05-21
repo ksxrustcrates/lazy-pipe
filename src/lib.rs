@@ -6,6 +6,5 @@ mod structs;
 mod traits;
 
 pub use fns::*;
-pub use impls::*;
 pub use structs::*;
 pub use traits::*;
