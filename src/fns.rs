@@ -55,4 +55,17 @@ mod tests {
 
         assert_eq!(received, expected);
     }
+
+    #[test]
+    fn pipe_aliases_work() {
+        let expected = ((3 + 1) / 2).to_string();
+
+        let received = pipe(3)
+            .to(|x| x + 1)
+            .to(|x| x / 2)
+            .to(|x| x.to_string())
+            .unwrap();
+
+        assert_eq!(received, expected);
+    }
 }
